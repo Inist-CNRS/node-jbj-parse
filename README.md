@@ -26,7 +26,7 @@ JBJ.use(require('jbj-parse'));
 Use [mocha](https://github.com/visionmedia/mocha) to run the tests.
 
 ```bash
-$ npm install --dev
+$ npm install
 $ npm test
 ```
 
