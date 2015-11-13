@@ -1,0 +1,32 @@
+{
+  "name": "jbj-parse",
+  "version": "1.0.0",
+  "description": "JBJ parse module",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Inist-CNRS/node-jbj-parse.git"
+  },
+  "keywords": [
+    "JSON",
+    "jbj",
+    "parse"
+  ],
+  "author": "François Parmentier <francois.parmentier@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Inist-CNRS/node-jbj-parse/issues"
+  },
+  "homepage": "https://github.com/Inist-CNRS/node-jbj-parse#readme",
+  "dependencies": {
+    "csv-string": "^2.3.0",
+    "xml-mapping": "^1.7.0"
+  },
+  "devDependencies": {
+    "jbj": "^4.0.0",
+    "mocha": "^2.3.3"
+  }
+}
