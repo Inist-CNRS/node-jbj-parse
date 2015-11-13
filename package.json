@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Inist-CNRS/node-jbj-parse.git"
+    "url": "https://github.com/Inist-CNRS/node-jbj-parse.git"
   },
   "keywords": [
     "JSON",
