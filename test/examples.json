@@ -1,0 +1,107 @@
+{
+  "csv": {
+    "input": {
+      "a" : {
+        "b" : ["x","y","z"],
+        "d" : null
+      }
+    },
+    "stylesheet": {
+      "$e" : {
+        "find#0": "a",
+        "mask": "b",
+        "find#1": "b",
+        "csv" : ",",
+        "trim": true
+      }
+    }
+  },
+  "parseCSV": {
+    "input": {
+      "a" : {
+        "b" : ["x","y","z"],
+        "d" : null
+      }
+    },
+    "stylesheet": {
+      "find": "a.b",
+      "csv" : ",",
+      "parseCSV": ","
+    }
+  },
+  "parseCSVFile": {
+    "input": "\"Afghanistan\";\"AFG\"\n\"Aland Islands\";\"ALA\"",
+    "stylesheet": { "parseCSVFile": ";" }
+  },
+  "JSON output": {
+    "input": {
+      "a" : {
+        "b" : ["x","y","z"],
+        "d" : null
+      }
+    },
+    "stylesheet": {
+      "$e" : {
+        "find#0": "a",
+        "mask": "b",
+        "find#1": "b",
+        "json" : ",",
+      }
+    }
+  },
+  "parseJSON": {
+    "input": {
+      "a" : {
+        "b" : ["x","y","z"],
+        "d" : null
+      }
+    },
+    "stylesheet": {
+      "find": "a.b",
+      "json" : true,
+      "parseJSON": true
+    }
+  },
+  "unjson": {
+    "input": {
+      "a" : {
+        "b" : {
+          "c" : "1234"
+        },
+        "d" : null
+      }
+    },
+    "stylesheet": {
+      "$a" : {
+        "find": "a.b.d",
+        "default": "[\"truc\", \"bidule\"]",
+        "unjson": true
+      }
+    }
+  },
+  "parseXML": {
+    "stylesheet": {
+      "default": "<root><item xml:id=\"1\">A</item><item xml:id=\"2\">B</item><item xml:id=\"3\">C</item></root>",
+      "parseXML" : {
+        "specialChar": "#",
+        "longTag" : true
+      }
+    }
+  },
+  "xml": {
+    "input": {
+      "root" : {
+        "item" : [
+          { "index" : "1", "$t" : "A"},
+          { "index" : "2", "$t" : "B"},
+          { "index" : "3", "$t" : "C"}
+        ]
+      }
+    },
+    "stylesheet": {
+      "xml" : {
+        "indent": false
+      }
+    }
+  }
+}
