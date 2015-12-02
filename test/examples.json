@@ -50,15 +50,8 @@
     }
   },
   "parseJSON": {
-    "input": {
-      "a" : {
-        "b" : ["x","y","z"],
-        "d" : null
-      }
-    },
+    "input": "[\"x\",\"y\",\"z\"]",
     "stylesheet": {
-      "find": "a.b",
-      "json" : true,
       "parseJSON": true
     }
   },
