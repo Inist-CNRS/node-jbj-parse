@@ -44,4 +44,18 @@ describe('asynchronous json', function () {
     });
   });
 
+  it('json #3', function(done) {
+    var stylesheet = {
+      "$a" : {
+        "find": "a.b.d",
+        "default": '["truc", "bidule"]',
+        "unjson": null
+      }
+    };
+    var output = JBJ.render(stylesheet, input, function (err, output) {
+      assert.equal(output.a[0], "truc");
+      done(err);
+    });
+  });
+
 });

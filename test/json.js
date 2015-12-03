@@ -40,4 +40,16 @@ describe('json', function () {
     assert.equal(output[2], "z");
   });
 
+  it('json #3', function() {
+    var stylesheet = {
+      "$a" : {
+        "find": "a.b.d",
+        "default": '["truc", "bidule"]',
+        "unjson": null
+      }
+    };
+    var output = JBJ.renderSync(stylesheet, input);
+    assert.equal(output.a[0], "truc");
+  });
+
 });
