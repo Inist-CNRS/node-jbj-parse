@@ -8,9 +8,9 @@
     },
     "stylesheet": {
       "$e" : {
-        "find#0": "a",
+        "get#0": "a",
         "mask": "b",
-        "find#1": "b",
+        "get#1": "b",
         "csv" : ",",
         "trim": true
       }
@@ -24,7 +24,7 @@
       }
     },
     "stylesheet": {
-      "find": "a.b",
+      "get": "a.b",
       "csv" : ",",
       "parseCSV": ","
     }
@@ -42,9 +42,9 @@
     },
     "stylesheet": {
       "$e" : {
-        "find#0": "a",
+        "get#0": "a",
         "mask": "b",
-        "find#1": "b",
+        "get#1": "b",
         "json" : ","
       }
     }
@@ -55,26 +55,17 @@
       "parseJSON": true
     }
   },
-  "unjson": {
-    "input": {
-      "a" : {
-        "b" : {
-          "c" : "1234"
-        },
-        "d" : null
-      }
-    },
+  "parseJSON #2": {
+    "input": "{\"foo\": \"bar\"}",
     "stylesheet": {
       "$a" : {
-        "find": "a.b.d",
-        "default": "[\"truc\", \"bidule\"]",
-        "unjson": true
+        "parseJSON": true
       }
     }
   },
   "parseXML": {
+    "input": "<root><item xml:id=\"1\">A</item><item xml:id=\"2\">B</item><item xml:id=\"3\">C</item></root>",
     "stylesheet": {
-      "default": "<root><item xml:id=\"1\">A</item><item xml:id=\"2\">B</item><item xml:id=\"3\">C</item></root>",
       "parseXML" : {
         "specialChar": "#",
         "longTag" : true

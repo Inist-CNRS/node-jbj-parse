@@ -42,7 +42,7 @@ Pack *input* to CSV, return string
         "set" : ["x","y","z"],
         "csv" : ","
     };
-    // output : "x,y,z"\r\n
+    // output : "x,y,z\r\n"
 ```
 
 <a id="parsecsv"></a>
