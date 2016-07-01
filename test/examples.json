@@ -87,7 +87,7 @@
 				"indent": false
 			}
 		}
-	}
+	},
 	"querystring #1" : {
 		"input": "foo[bar]=baz",
 		"stylesheet": {
