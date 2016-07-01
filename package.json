@@ -23,10 +23,11 @@
   "homepage": "https://github.com/Inist-CNRS/node-jbj-parse#readme",
   "dependencies": {
     "csv-string": "^2.3.0",
+    "qs": "^6.2.0",
     "xml-mapping": "^1.7.0"
   },
   "devDependencies": {
-    "jbj": "^4.0.0",
+    "jbj": "^6.0.0",
     "mocha": "^2.3.3"
   }
 }

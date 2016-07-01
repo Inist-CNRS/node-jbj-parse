@@ -61,10 +61,10 @@ describe('asynchronous csv', function () {
 
   it('csv #5', function (done) {
     var stylesheet = {
-      "find"        : "d",
+      "set"        : "\"Afghanistan\";\"AFG\"\n\"Aland Islands\";\"ALA\"",
       "parseCSVFile": ";"
     };
-    JBJ.render(stylesheet, input, function (err, output) {
+      JBJ.render(stylesheet, input, function (err, output) {
       assert.equal(output.length,2);
       assert.equal(output[0][0],"Afghanistan");
       assert.equal(output[0][1],"AFG");

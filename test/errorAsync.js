@@ -20,13 +20,13 @@ describe('asynchronous error', function () {
   it('error #1', function(done) {
     var stylesheet = {
       "$a" : {
-        "default" : "\"xxxx",
+        "set" : "\"xxxx",
         "parseJSON" : true
       }
     };
     JBJ.render(stylesheet, input, function (err, output) {
-      assert.equal(output.a.name, 'SyntaxError');
-      done(err);
+      assert.equal(err.name, 'SyntaxError');
+      done();
     });
 
   });

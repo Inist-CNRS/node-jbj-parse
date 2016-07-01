@@ -1,91 +1,127 @@
 {
-  "csv": {
-    "input": {
-      "a" : {
-        "b" : ["x","y","z"],
-        "d" : null
-      }
-    },
-    "stylesheet": {
-      "$e" : {
-        "get#0": "a",
-        "mask": "b",
-        "get#1": "b",
-        "csv" : ",",
-        "trim": true
-      }
-    }
-  },
-  "parseCSV": {
-    "input": {
-      "a" : {
-        "b" : ["x","y","z"],
-        "d" : null
-      }
-    },
-    "stylesheet": {
-      "get": "a.b",
-      "csv" : ",",
-      "parseCSV": ","
-    }
-  },
-  "parseCSVFile": {
-    "input": "\"Afghanistan\";\"AFG\"\n\"Aland Islands\";\"ALA\"",
-    "stylesheet": { "parseCSVFile": ";" }
-  },
-  "JSON output": {
-    "input": {
-      "a" : {
-        "b" : ["x","y","z"],
-        "d" : null
-      }
-    },
-    "stylesheet": {
-      "$e" : {
-        "get#0": "a",
-        "mask": "b",
-        "get#1": "b",
-        "json" : ","
-      }
-    }
-  },
-  "parseJSON": {
-    "input": "[\"x\",\"y\",\"z\"]",
-    "stylesheet": {
-      "parseJSON": true
-    }
-  },
-  "parseJSON #2": {
-    "input": "{\"foo\": \"bar\"}",
-    "stylesheet": {
-      "$a" : {
-        "parseJSON": true
-      }
-    }
-  },
-  "parseXML": {
-    "input": "<root><item xml:id=\"1\">A</item><item xml:id=\"2\">B</item><item xml:id=\"3\">C</item></root>",
-    "stylesheet": {
-      "parseXML" : {
-        "specialChar": "#",
-        "longTag" : true
-      }
-    }
-  },
-  "xml": {
-    "input": {
-      "root" : {
-        "item" : [
-          { "index" : "1", "$t" : "A"},
-          { "index" : "2", "$t" : "B"},
-          { "index" : "3", "$t" : "C"}
-        ]
-      }
-    },
-    "stylesheet": {
-      "xml" : {
-        "indent": false
-      }
-    }
-  }
+	"csv": {
+		"input": {
+			"a" : {
+				"b" : ["x","y","z"],
+				"d" : null
+			}
+		},
+		"stylesheet": {
+			"$e" : {
+				"get#0": "a",
+				"mask": "b",
+				"get#1": "b",
+				"csv" : ",",
+				"trim": true
+			}
+		}
+	},
+	"parseCSV": {
+		"input": {
+			"a" : {
+				"b" : ["x","y","z"],
+				"d" : null
+			}
+		},
+		"stylesheet": {
+			"get": "a.b",
+			"csv" : ",",
+			"parseCSV": ","
+		}
+	},
+	"parseCSVFile": {
+		"input": "\"Afghanistan\";\"AFG\"\n\"Aland Islands\";\"ALA\"",
+		"stylesheet": { "parseCSVFile": ";" }
+	},
+	"JSON output": {
+		"input": {
+			"a" : {
+				"b" : ["x","y","z"],
+				"d" : null
+			}
+		},
+		"stylesheet": {
+			"$e" : {
+				"get#0": "a",
+				"mask": "b",
+				"get#1": "b",
+				"json" : ","
+			}
+		}
+	},
+	"parseJSON": {
+		"input": "[\"x\",\"y\",\"z\"]",
+		"stylesheet": {
+			"parseJSON": true
+		}
+	},
+	"parseJSON #2": {
+		"input": "{\"foo\": \"bar\"}",
+		"stylesheet": {
+			"$a" : {
+				"parseJSON": true
+			}
+		}
+	},
+	"parseXML": {
+		"input": "<root><item xml:id=\"1\">A</item><item xml:id=\"2\">B</item><item xml:id=\"3\">C</item></root>",
+		"stylesheet": {
+			"parseXML" : {
+				"specialChar": "#",
+				"longTag" : true
+			}
+		}
+	},
+	"xml": {
+		"input": {
+			"root" : {
+				"item" : [
+					{ "index" : "1", "$t" : "A"},
+					{ "index" : "2", "$t" : "B"},
+					{ "index" : "3", "$t" : "C"}
+				]
+			}
+		},
+		"stylesheet": {
+			"xml" : {
+				"indent": false
+			}
+		}
+	}
+	"querystring #1" : {
+		"input": "foo[bar]=baz",
+		"stylesheet": {
+			"parseQueryString": true,
+			"get": "foo.bar"
+		},
+		"expected":  "baz"
+	},
+	"querystring #2" : {
+		"input": {
+			"foo": {
+				"bar": "baz"
+			}
+		},
+		"stylesheet": {
+			"querystring": true
+		},
+		"expected": "foo%5Bbar%5D=baz"
+	},
+	"url #1" : {
+		"input": "file://./test/template.mustache",
+		"stylesheet": {
+			"parseURL": true,
+			"get": "protocol"
+		},
+		"expected":  "file:"
+	},
+	"url #2" : {
+		"input": "http://www.google.fr",
+		"stylesheet": {
+			"parseURL": true,
+			"url": true
+		},
+		"expected":  "http://www.google.fr/"
+	}
+
 }
