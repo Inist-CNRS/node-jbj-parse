@@ -28,7 +28,16 @@ describe('asynchronous error', function () {
       assert.equal(err.name, 'SyntaxError');
       done();
     });
+  });
 
+  it('error #2', function(done) {
+    var stylesheet = {
+      "assert" : "a == 'X'"
+    };
+    JBJ.render(stylesheet, input, function (err, output) {
+      assert.equal(err.name, 'Error');
+      done();
+    });
   });
 
 });
