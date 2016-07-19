@@ -147,6 +147,82 @@ Parse *input* as XML string, return object
     // output : { root : { item : [ { xml#id: 1, #text: A }, { xml#id: 2, #text: B }, { xml#id: 3, #text: C } ] } }
 ```
 
+<a id="url"></a>
+### url: options
+
+Pack *input* to URL, return string
+
+```javascript
+    var stylesheet = {
+        "set":  {
+		  "protocol": "http:",
+		  "auth": "user:pass",
+		  "port": "8080",
+		  "hostname": "host.com",
+		  "hash": "#hash",
+		  "query": { query: 'string' },
+		  "pathname": "/p/a/t/h",
+        },
+        "url" : true
+    };
+    // output : http://user:pass@host.com:8080/p/a/t/h?query=string#hash
+```
+
+<a id="parseurl"></a>
+### parseURL: options
+
+*aliases : fromURL, unurl*
+
+Parse *input* as URL string, return object
+
+```javascript
+    var stylesheet = {
+        "set": "http://user:pass@host.com:8080/p/a/t/h?query=string#hash",
+        "parseURL" : true
+    };
+    // output : { protocol: 'http:', slashes: true, auth: 'user:pass', host: 'host.com:8080', port: '8080', hostname: 'host.com', hash: '#hash', search: '?query=string', query: { query: 'string' }, pathname: '/p/a/t/h', path: '/p/a/t/h?query=string', href: 'http://user:pass@host.com:8080/p/a/t/h?query=string#hash' }
+```
+
+<a id="querystring"></a>
+### querystring: options
+
+Pack *input* to queryString, return string
+
+```javascript
+    var stylesheet = {
+        "set":  {
+		  "a": "http:",
+		  "b": "user:pass",
+		  "c": "8080",
+		  "d": "host.com",
+		  "e": "#hash",
+		  "f": { "f1": 'string' },
+		  "g": "/p/a/t/h",
+        },
+        "querystring" : true
+    };
+    // output : a=http%3A&b=user%3Apass&c=8080&d=host.com&e=%23hash&f%5Bf1%5D=string&g=%2Fp%2Fa%2Ft%2Fh
+```
+
+<a id="parsequerystring"></a>
+### parseQueryString: options
+
+*aliases : fromQueryString*
+
+Parse *input* as QueryString string, return object
+
+```javascript
+    var stylesheet = {
+        "set": "a=http%3A&b=user%3Apass&c=8080&d=host.com&e=%23hash&f%5Bf1%5D=string&g=%2Fp%2Fa%2Ft%2Fh",
+        "parseQueryString" : true
+    };
+    // output : { a: 'http:', b: 'user:pass', c: '8080', d: 'host.com', e: '#hash', f: { f1: 'string' }, g: '/p/a/t/h' }
+
+```
+
+
+
+
 ## Examples
 
 See unit tests : https://github.com/Inist-CNRS/node-jbj-parse/tree/master/test
